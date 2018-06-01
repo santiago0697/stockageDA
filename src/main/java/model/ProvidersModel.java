@@ -1,6 +1,6 @@
 package model;
 
-public class providers {
+public class ProvidersModel {
 
     private Integer provider_id;
     private String provider_name;

@@ -1,17 +1,18 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
-import model.providers;
-import utils.Constants;
+import controller.ProvidersController;
 
 import javax.swing.*;
 import java.io.IOException;
 
 public class Main extends JFrame {
 
+    private JTabbedPane mainTabbedPane;
+    private ProvidersController providersController;
+
     public Main() {
+        initComponents();
         frameSetUp();
     }
 
@@ -20,6 +21,17 @@ public class Main extends JFrame {
         setSize(800, 600);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setResizable(false);
+    }
+
+    private void initComponents() {
+        mainTabbedPane = new JTabbedPane();
+
+        providersController = new ProvidersController();
+        mainTabbedPane.addTab("Providers", null, providersController.getView(), "Providers CRUD");
+
+        this.add(mainTabbedPane);
+
     }
 
     private static void initSetUp() {
@@ -55,16 +67,16 @@ public class Main extends JFrame {
 
         new Main().setVisible(true);
 
-        /*HttpResponse<providers> jsonResponse = null;
+        /*HttpResponse<ProvidersModel> jsonResponse = null;
 
         try {
-            jsonResponse = Unirest.get(Constants.API_SERVER_URL + "/providers/getById/1").asObject(providers.class);
+            jsonResponse = Unirest.get(Constants.API_SERVER_URL + "/ProvidersModel/getById/1").asObject(ProvidersModel.class);
         } catch (UnirestException e) {
             e.printStackTrace();
         }
 
         if (jsonResponse != null) {
-            providers p = jsonResponse.getBody();
+            ProvidersModel p = jsonResponse.getBody();
             p.getCustomInfo();
         }
          */
