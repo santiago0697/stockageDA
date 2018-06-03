@@ -2,6 +2,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import controller.ProvidersController;
+import model.ProvidersModel;
 import utils.Constants;
 
 import javax.swing.*;

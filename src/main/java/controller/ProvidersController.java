@@ -12,7 +12,7 @@ public class ProvidersController {
 
     public ProvidersController() {
         model = new ProvidersModel();
-        view = new ProvidersView();
+        view = new ProvidersView(this);
     }
 
     public JPanel getView() {

@@ -1,6 +1,16 @@
 package model;
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import utils.Constants;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class ProvidersModel {
+
+    private static final String BASE_PATH = Constants.API_SERVER_URL + "/providers";
 
     private Integer provider_id;
     private String provider_name;
@@ -60,5 +70,21 @@ public class ProvidersModel {
     public void getCustomInfo() {
         System.out.println(String.format("provider_id: %d\nprovider_name: %s\nprovider_rewrite: %s\nprovider_email: %s\nprovider_phone: %s\nprovider_address: %s",
                 provider_id, provider_name, provider_rewrite, provider_email, provider_phone, provider_address));
+    }
+
+    public static List<ProvidersModel> getAllProviders() {
+        HttpResponse<ProvidersModel[]> jsonResponse = null;
+
+        try {
+            jsonResponse = Unirest.get(BASE_PATH + "/all").asObject(ProvidersModel[].class);
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
+
+        if (jsonResponse != null) {
+            return Arrays.asList(jsonResponse.getBody());
+        } else {
+            return null;
+        }
     }
 }
