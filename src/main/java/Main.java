@@ -2,9 +2,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import controller.ProvidersController;
+import utils.Constants;
 
 import javax.swing.*;
 import java.io.IOException;
+
+import static utils.Constants.PROVIDERS_ICON_RESOURCE;
+import static utils.Utils.createImageIcon;
 
 public class Main extends JFrame {
 
@@ -31,7 +35,6 @@ public class Main extends JFrame {
         mainTabbedPane.addTab("Providers", null, providersController.getView(), "Providers CRUD");
 
         this.add(mainTabbedPane);
-
     }
 
     private static void initSetUp() {
