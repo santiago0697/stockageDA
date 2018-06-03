@@ -7,9 +7,6 @@ import utils.Constants;
 import javax.swing.*;
 import java.io.IOException;
 
-import static utils.Constants.PROVIDERS_ICON_RESOURCE;
-import static utils.Utils.createImageIcon;
-
 public class Main extends JFrame {
 
     private JTabbedPane mainTabbedPane;

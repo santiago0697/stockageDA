@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="view.ProvidersView">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+  <grid id="27dc6" binding="mainProvidersPane" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <component id="6409c" class="javax.swing.JButton" binding="button1" default-binding="true">
+      <grid id="4bfc4" binding="controlArea" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="33650" class="javax.swing.JButton" binding="bCreate">
+            <constraints/>
+            <properties>
+              <text value="Create"/>
+            </properties>
+          </component>
+          <component id="c377a" class="javax.swing.JButton" binding="bUpdate">
+            <constraints/>
+            <properties>
+              <text value="Update"/>
+            </properties>
+          </component>
+          <component id="c4110" class="javax.swing.JButton" binding="bDelete">
+            <constraints/>
+            <properties>
+              <text value="Delete"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="85b5f" class="javax.swing.JTable" binding="contentTable">
         <constraints border-constraint="Center"/>
-        <properties>
-          <text value="Button"/>
-        </properties>
+        <properties/>
       </component>
     </children>
   </grid>
