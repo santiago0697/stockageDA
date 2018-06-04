@@ -65,22 +65,7 @@ public class Main extends JFrame {
     public static void main(String[] args) {
         System.out.println("[INFO] Inicio de la aplicacion");
         initSetUp();
-
         new Main().setVisible(true);
-
-        /*HttpResponse<ProvidersModel> jsonResponse = null;
-
-        try {
-            jsonResponse = Unirest.get(Constants.API_SERVER_URL + "/ProvidersModel/getById/1").asObject(ProvidersModel.class);
-        } catch (UnirestException e) {
-            e.printStackTrace();
-        }
-
-        if (jsonResponse != null) {
-            ProvidersModel p = jsonResponse.getBody();
-            p.getCustomInfo();
-        }
-         */
     }
 
 }
