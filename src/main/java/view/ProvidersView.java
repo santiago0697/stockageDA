@@ -1,6 +1,8 @@
 package view;
 
 import controller.ProvidersController;
+import model.ProvidersModel;
+import tables.ProvidersTableModel;
 
 import javax.swing.*;
 
@@ -12,8 +14,9 @@ public class ProvidersView {
     private JButton bUpdate;
     private JButton bDelete;
     private JTable contentTable;
+    private JPanel tablePanel;
 
-    public ProvidersView(ProvidersController controller){
+    public ProvidersView(ProvidersController controller) {
         this.controller = controller;
     }
 
@@ -39,5 +42,11 @@ public class ProvidersView {
 
     public JTable getContentTable() {
         return contentTable;
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+        //contentTable = new JTable(new ProvidersTableModel(ProvidersModel.getAllProviders()));
+        contentTable = new JTable(new ProvidersTableModel());
     }
 }

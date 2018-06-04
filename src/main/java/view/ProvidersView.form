@@ -32,10 +32,19 @@
           </component>
         </children>
       </grid>
-      <component id="85b5f" class="javax.swing.JTable" binding="contentTable">
+      <grid id="714f3" binding="tablePanel" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="Center"/>
         <properties/>
-      </component>
+        <border type="none"/>
+        <children>
+          <component id="85b5f" class="javax.swing.JTable" binding="contentTable" custom-create="true">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <background color="-12517375"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>
