@@ -69,4 +69,9 @@ public class ProvidersTableModel extends AbstractTableModel {
         row[5] = pm.getProvider_address();
         return row;
     }
+
+    @Override
+    public String getColumnName(int column) {
+        return columnas[column];
+    }
 }

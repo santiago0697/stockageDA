@@ -37,12 +37,22 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="85b5f" class="javax.swing.JTable" binding="contentTable" custom-create="true">
+          <scrollpane id="f64e9">
             <constraints border-constraint="Center"/>
             <properties>
-              <background color="-12517375"/>
+              <background color="-262149"/>
             </properties>
-          </component>
+            <border type="none"/>
+            <children>
+              <component id="85b5f" class="javax.swing.JTable" binding="contentTable" custom-create="true">
+                <constraints/>
+                <properties>
+                  <background color="-262149"/>
+                  <foreground color="-16777216"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
         </children>
       </grid>
     </children>
