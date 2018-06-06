@@ -48,7 +48,7 @@ public class ProvidersView {
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        contentTable = new JTable(new ProvidersTableModel(ProvidersModel.getAllProviders()));
+        contentTable = new JTable(new ProvidersTableModel(ProvidersModel.getAllProviders(), this));
 
         bCreate = new JButton("Create");
         bCreate.setName("create");
@@ -59,5 +59,9 @@ public class ProvidersView {
         bDelete = new JButton("Delete");
         bDelete.setName("delete");
 
+    }
+
+    public void updateContentTable() {
+        this.contentTable.setModel(new ProvidersTableModel(ProvidersModel.getAllProviders(), this));
     }
 }

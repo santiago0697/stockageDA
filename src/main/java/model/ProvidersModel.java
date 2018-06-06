@@ -1,9 +1,11 @@
 package model;
 
 import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import utils.Constants;
+import utils.Utils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -85,6 +87,18 @@ public class ProvidersModel {
             return Arrays.asList(jsonResponse.getBody());
         } else {
             return null;
+        }
+    }
+
+    public static void createProvider(ProvidersModel pm) {
+        try {
+            HttpResponse<JsonNode> postResponse = Unirest.post(BASE_PATH + "/insert")
+                    .header("accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .body(pm)
+                    .asJson();
+        } catch (UnirestException e) {
+            Utils.log("ERROR", "Error a la hora de insertar el proveedor");
         }
     }
 }
