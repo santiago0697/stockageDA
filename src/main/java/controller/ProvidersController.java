@@ -50,8 +50,8 @@ public class ProvidersController {
                     Utils.log("INFO", "Create action");
                     ((ProvidersTableModel) controller.view.getContentTable().getModel()).addRow(new ProvidersModel());
                     break;
-                case "update":
-                    Utils.log("INFO", "Update action");
+                case "save":
+                    Utils.log("INFO", "Save action");
                     break;
                 case "delete":
                     Utils.log("INFO", "Delete action");
