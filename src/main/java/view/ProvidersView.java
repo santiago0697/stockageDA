@@ -5,6 +5,8 @@ import model.ProvidersModel;
 import tables.ProvidersTableModel;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ProvidersView {
     private ProvidersController controller;
@@ -47,5 +49,15 @@ public class ProvidersView {
     private void createUIComponents() {
         // TODO: place custom component creation code here
         contentTable = new JTable(new ProvidersTableModel(ProvidersModel.getAllProviders()));
+
+        bCreate = new JButton("Create");
+        bCreate.setName("create");
+
+        bUpdate = new JButton("Update");
+        bUpdate.setName("update");
+
+        bDelete = new JButton("Delete");
+        bDelete.setName("delete");
+
     }
 }

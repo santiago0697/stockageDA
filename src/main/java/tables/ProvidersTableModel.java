@@ -74,4 +74,9 @@ public class ProvidersTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         return columnas[column];
     }
+
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return (columnIndex == 0 ? false : true);
+    }
 }
