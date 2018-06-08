@@ -101,4 +101,27 @@ public class ProvidersModel {
             Utils.log("ERROR", "Error a la hora de insertar el proveedor");
         }
     }
+
+    public static void updateProvider(ProvidersModel pm, Integer provider_id) {
+        try {
+            Unirest.put(BASE_PATH + "/update/" + provider_id)
+                    .header("accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .body(pm)
+                    .asJson();
+        } catch (Exception e) {
+            Utils.log("ERROR", "Error a la hora de actualizar el proveedor");
+        }
+    }
+
+    public static void deleteProvider(Integer provider_id) {
+        try {
+            Unirest.delete(BASE_PATH + "/delete/" + provider_id)
+                    .header("accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .asJson();
+        } catch (Exception e) {
+            Utils.log("ERROR", "Error a la hora de eliminar el proveedor");
+        }
+    }
 }

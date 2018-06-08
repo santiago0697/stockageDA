@@ -64,11 +64,11 @@ public class ProvidersController {
                     ((ProvidersTableModel) controller.view.getContentTable().getModel()).addRow(new ProvidersModel());
                     providersEdidtedRows.add(controller.view.getContentTable().getModel().getRowCount());
                     break;
-                case "save":
-                    Utils.log("INFO", "Save action");
-                    saveData();
-                    break;
                 case "delete":
+                    Integer selectedRow = view.getContentTable().getSelectedRow();
+                    Integer provider_id = Integer.parseInt(view.getContentTable().getModel().getValueAt(selectedRow, 0).toString());
+                    ProvidersModel.deleteProvider(provider_id);
+                    view.updateContentTable();
                     Utils.log("INFO", "Delete action");
                     break;
             }

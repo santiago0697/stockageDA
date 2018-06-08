@@ -18,12 +18,6 @@
               <text value="Create"/>
             </properties>
           </component>
-          <component id="c377a" class="javax.swing.JButton" binding="bUpdate" custom-create="true">
-            <constraints/>
-            <properties>
-              <text value="Save"/>
-            </properties>
-          </component>
           <component id="c4110" class="javax.swing.JButton" binding="bDelete" custom-create="true">
             <constraints/>
             <properties>

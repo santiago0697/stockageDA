@@ -89,27 +89,29 @@ public class ProvidersTableModel extends AbstractTableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         Object[] row = (Object[]) data.get(rowIndex);
         row[columnIndex] = aValue;
-        if (row[0] == null) {
-            boolean validated = true;
-            for (int j = 1; j < getColumnCount(); j++) {
-                if (row[j] == null) {
-                    validated = false;
-                    break;
-                }
+        boolean validated = true;
+        for (int j = 1; j < getColumnCount(); j++) {
+            if (row[j] == null) {
+                validated = false;
+                break;
             }
-            if (validated) {
-                ProvidersModel pm = new ProvidersModel();
+        }
+        if (validated) {
+            ProvidersModel pm = new ProvidersModel();
 
-                pm.setProvider_name(row[1].toString());
-                pm.setProvider_rewrite(row[2].toString());
-                pm.setProvider_email(row[3].toString());
-                pm.setProvider_phone(row[4].toString());
-                pm.setProvider_address(row[5].toString());
+            pm.setProvider_name(row[1].toString());
+            pm.setProvider_rewrite(row[2].toString());
+            pm.setProvider_email(row[3].toString());
+            pm.setProvider_phone(row[4].toString());
+            pm.setProvider_address(row[5].toString());
 
-                pm.getCustomInfo();
+            if (row[0] == null) {
                 ProvidersModel.createProvider(pm);
-                view.updateContentTable();
+            } else {
+                ProvidersModel.updateProvider(pm, Integer.parseInt(row[0].toString()));
             }
+            view.updateContentTable();
+
         }
     }
 }
