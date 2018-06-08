@@ -16,36 +16,18 @@ public class ProvidersController {
     private ProvidersModel model;
     private ProvidersView view;
     private ButtonsActionListener buttonsActionListener;
-    private ArrayList<Integer> providersEdidtedRows;
 
     public ProvidersController() {
-        providersEdidtedRows = new ArrayList<>();
         model = new ProvidersModel();
         view = new ProvidersView(this);
         buttonsActionListener = new ButtonsActionListener(this);
 
         view.getbCreate().addActionListener(buttonsActionListener);
-        view.getbUpdate().addActionListener(buttonsActionListener);
         view.getbDelete().addActionListener(buttonsActionListener);
     }
 
     public JPanel getView() {
         return view.getView();
-    }
-
-    public void saveData() {
-        for (Integer i : providersEdidtedRows) {
-            ProvidersModel pm = new ProvidersModel();
-            ProvidersTableModel tableModel = (ProvidersTableModel) view.getContentTable().getModel();
-
-            pm.setProvider_name((String) tableModel.getValueAt(i, view.getContentTable().getColumn("providers_name").getModelIndex()));
-            pm.setProvider_rewrite((String) tableModel.getValueAt(i, view.getContentTable().getColumn("providers_rewrite").getModelIndex()));
-            pm.setProvider_email((String) tableModel.getValueAt(i, view.getContentTable().getColumn("providers_email").getModelIndex()));
-            pm.setProvider_phone((String) tableModel.getValueAt(i, view.getContentTable().getColumn("providers_phone").getModelIndex()));
-            pm.setProvider_address((String) tableModel.getValueAt(i, view.getContentTable().getColumn("providers_address").getModelIndex()));
-
-            ProvidersModel.createProvider(pm);
-        }
     }
 
     private class ButtonsActionListener implements ActionListener {
@@ -58,11 +40,10 @@ public class ProvidersController {
 
         public void actionPerformed(ActionEvent e) {
             JButton buttonPressed = (JButton) e.getSource();
-            switch (buttonPressed.getName().toString()) {
+            switch (buttonPressed.getName()) {
                 case "create":
                     Utils.log("INFO", "Create action");
                     ((ProvidersTableModel) controller.view.getContentTable().getModel()).addRow(new ProvidersModel());
-                    providersEdidtedRows.add(controller.view.getContentTable().getModel().getRowCount());
                     break;
                 case "delete":
                     Integer selectedRow = view.getContentTable().getSelectedRow();
