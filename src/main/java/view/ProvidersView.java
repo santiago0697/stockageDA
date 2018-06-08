@@ -53,12 +53,8 @@ public class ProvidersView {
         bCreate = new JButton("Create");
         bCreate.setName("create");
 
-        bUpdate = new JButton("Save");
-        bUpdate.setName("save");
-
         bDelete = new JButton("Delete");
         bDelete.setName("delete");
-
     }
 
     public void updateContentTable() {
