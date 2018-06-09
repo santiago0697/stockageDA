@@ -1,6 +1,7 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
+import controller.DeliveryStatusController;
 import controller.LocationsController;
 import controller.ProvidersController;
 import model.ProvidersModel;
@@ -12,8 +13,10 @@ import java.io.IOException;
 public class Main extends JFrame {
 
     private JTabbedPane mainTabbedPane;
+
     private ProvidersController providersController;
     private LocationsController locationsController;
+    private DeliveryStatusController deliveryStatusController;
 
     public Main() {
         initComponents();
@@ -36,6 +39,9 @@ public class Main extends JFrame {
 
         locationsController = new LocationsController();
         mainTabbedPane.addTab("Locations", null, locationsController.getView(), "Locations CRUD");
+
+        deliveryStatusController = new DeliveryStatusController();
+        mainTabbedPane.addTab("Delivery Status", null, deliveryStatusController.getView(), "Delivery Status CRUD");
 
         this.add(mainTabbedPane);
     }
