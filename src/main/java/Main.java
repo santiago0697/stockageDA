@@ -4,6 +4,7 @@ import com.mashape.unirest.http.Unirest;
 import controller.DeliveryStatusController;
 import controller.LocationsController;
 import controller.ProvidersController;
+import model.ProductsModel;
 import model.ProvidersModel;
 import utils.Constants;
 
